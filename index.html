@@ -1,1 +1,1275 @@
 
+<html lang="fr" class="h-full bg-[#F8F9FA]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histoire de l'art - Le Cubisme | Pôle Territorial WBE</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for High Readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#001D74',      /* 30% Structure & Brand */
+            accent: '#C4332B',     /* 10% CTA / Alert */
+            highlight: '#ECA531',  /* 10% Progress & Badges */
+            bodytext: '#1E293B',   /* Dark slate typography */
+            bgneutral: '#F8F9FA'   /* 60% Light background */
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            accessible: ['Atkinson Hyperlegible', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom accessibility styles & smooth transitions */
+    .dyslexic-font {
+      font-family: 'Atkinson Hyperlegible', sans-serif !important;
+      letter-spacing: 0.05em !important;
+      word-spacing: 0.1em !important;
+      line-height: 1.8 !important;
+    }
+    
+    .high-contrast {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+    
+    .high-contrast .bg-brand {
+      background-color: #000f3d !important;
+    }
+
+    .focus-ring:focus-visible {
+      outline: 4px solid #ECA531 !important;
+      outline-offset: 2px;
+    }
+
+    /* Custom scrollbar for clean UI */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8F9FA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #001D74;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col font-sans text-bodytext bg-bgneutral antialiased selection:bg-highlight selection:text-brand transition-colors duration-200">
+
+  <!-- HEADER -->
+  <header class="bg-brand text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo & Main Title -->
+        <div class="flex items-center space-x-4">
+          <a href="#" onclick="switchTab('intro')" class="focus-ring rounded-lg p-1 transition-opacity hover:opacity-90" title="Retour à l'accueil">
+            <img 
+              src="https://www.wbe.be/fileadmin/sites/wbe/uploads/images/Poles_territoriaux/logo-poles-terr-GRAND.png" 
+              alt="Logo Pôle Territorial WBE" 
+              class="h-12 w-auto max-w-[160px] sm:max-w-[200px] object-contain bg-white/10 p-1 rounded"
+              onerror="this.onerror=null; this.src='https://placehold.co/200x60/001D74/FFFFFF?text=P%C3%B4le+WBE';"
+            />
+          </a>
+          <div class="h-8 w-px bg-white/20 hidden sm:block"></div>
+          <h1 class="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-white leading-tight">
+            Histoire de l'art - Le cubisme
+          </h1>
+        </div>
+
+        <!-- Right Side: Accessibility Toggles & Score Frame -->
+        <div class="flex items-center space-x-3 sm:space-x-4">
+          <!-- Accessibility toolbar -->
+          <div class="hidden md:flex items-center space-x-2 bg-white/10 p-1.5 rounded-lg text-xs">
+            <button id="btn-dyslexia" onclick="toggleDyslexiaMode()" class="px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 transition focus-ring font-medium" title="Activer la police adaptée aux troubles Dys">
+              <span class="font-bold">Aa</span> Dyslexie
+            </button>
+            <button id="btn-tts" onclick="toggleTextToSpeech()" class="px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 transition focus-ring font-medium" title="Audio assistance">
+              <svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+            </button>
+          </div>
+
+          <!-- Score Card Frame -->
+          <div class="bg-white text-brand border-2 border-highlight px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl shadow-md flex items-center space-x-2 font-bold">
+            <!-- SVG Trophy Icon -->
+            <svg class="w-6 h-6 text-highlight shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 15.9V18H8v2h8v-2h-3v-2.1c2.12-.39 3.79-2.03 3.96-4.14C19.23 11.45 21 9.4 21 7V6c0-1.1-.9-1-2-1zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
+            </svg>
+            <div class="flex flex-col items-end leading-none">
+              <span class="text-[10px] text-gray-500 uppercase font-semibold tracking-wider">Score</span>
+              <span id="global-score" class="text-base sm:text-lg font-extrabold text-brand">0 pts</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS (Icons using SVGs/Special characters, NO Emojis) -->
+  <nav class="bg-white border-b border-gray-200 shadow-sm sticky top-20 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex space-x-2 sm:space-x-8 overflow-x-auto py-2 no-scrollbar" role="tablist">
+        
+        <!-- Tab 1 -->
+        <button 
+          id="tab-btn-intro"
+          onclick="switchTab('intro')" 
+          role="tab"
+          aria-selected="true"
+          class="nav-tab active-tab flex items-center space-x-2 px-4 py-2.5 text-sm sm:text-base font-semibold border-b-4 transition-all duration-150 whitespace-nowrap focus-ring rounded-t-md"
+        >
+          <!-- SVG Icon: Compass / Intro -->
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span>1. Introduction</span>
+        </button>
+
+        <!-- Tab 2 -->
+        <button 
+          id="tab-btn-notes"
+          onclick="switchTab('notes')" 
+          role="tab"
+          aria-selected="false"
+          class="nav-tab flex items-center space-x-2 px-4 py-2.5 text-sm sm:text-base font-semibold border-b-4 border-transparent text-gray-600 hover:text-brand transition-all duration-150 whitespace-nowrap focus-ring rounded-t-md"
+        >
+          <!-- SVG Icon: Book / Notes -->
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          <span>2. Notes de cours</span>
+        </button>
+
+        <!-- Tab 3 -->
+        <button 
+          id="tab-btn-games"
+          onclick="switchTab('games')" 
+          role="tab"
+          aria-selected="false"
+          class="nav-tab flex items-center space-x-2 px-4 py-2.5 text-sm sm:text-base font-semibold border-b-4 border-transparent text-gray-600 hover:text-brand transition-all duration-150 whitespace-nowrap focus-ring rounded-t-md"
+        >
+          <!-- SVG Icon: Gamepad / Games -->
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span>3. Jeux & Exercices</span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    
+    <!-- TAB 1: INTRODUCTION -->
+    <section id="tab-content-intro" class="space-y-6">
+      
+      <!-- Unified Section Header Layout -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200">
+        <div class="inline-block px-3 py-1 bg-highlight/20 text-brand rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+          S6 Enseignement Technique Secondary
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-brand tracking-tight mb-2">
+          Bienvenue dans ton parcours interactif sur le Cubisme
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Cette application interactive et gamifiée a été spécialement conçue par le Pôle Territorial WBE pour t'aider à réviser et maîtriser les notions clés de l'histoire de l'art.
+        </p>
+      </div>
+
+      <!-- Objectives Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Pedagogical Objectives Card -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-brand/10 text-brand flex items-center justify-center font-bold">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <h3 class="text-xl font-bold text-brand">Objectifs d'apprentissage</h3>
+            </div>
+            
+            <p class="text-sm text-gray-600 mb-4">
+              En réalisant les activités de cet outil, tu seras capable de :
+            </p>
+
+            <ul class="space-y-3 text-sm text-bodytext">
+              <li class="flex items-start space-x-3">
+                <span class="w-2 h-2 mt-2 rounded-full bg-highlight shrink-0"></span>
+                <span><strong>Comprendre & Contextualiser</strong> l'émergence de l'art cubiste au début du 20e siècle.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="w-2 h-2 mt-2 rounded-full bg-highlight shrink-0"></span>
+                <span><strong>Citer & Distinguer</strong> les 4 grands courants : <em>Cubisme Cézannien, Analytique, Synthétique, Orphique</em>.</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="w-2 h-2 mt-2 rounded-full bg-highlight shrink-0"></span>
+                <span><strong>Identifier les caractéristiques</strong> techniques et formelles (couleurs, collages, géométrie).</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="w-2 h-2 mt-2 rounded-full bg-highlight shrink-0"></span>
+                <span><strong>Reconnaître les œuvres et auteurs</strong> majeurs (Cézanne, Braque, Picasso, Gris, Delaunay).</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Alert Callout for Exam Prep -->
+          <div class="mt-6 p-4 rounded-xl bg-accent/10 border-l-4 border-accent">
+            <p class="text-xs font-bold text-accent uppercase tracking-wider mb-1">
+              Important pour tes évaluations
+            </p>
+            <p class="text-sm font-medium text-bodytext">
+              La maîtrise de ces 4 courants est une compétence indispensable requise pour la réussite des épreuves devant le jury et tes examens de fin d'année.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Summary Cards (The 4 Types) -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+          <h3 class="text-xl font-bold text-brand mb-4 flex items-center space-x-2">
+            <svg class="w-5 h-5 text-highlight" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>Aperçu des 4 types de Cubisme</span>
+          </h3>
+
+          <div class="space-y-3">
+            
+            <div class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:shadow-md transition">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-bold text-brand text-sm">1. Cubisme Cézannien</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-brand/10 text-brand font-semibold">1907 - 1909</span>
+              </div>
+              <p class="text-xs text-gray-600">Précurseur. Géométrisation naturelle (cylindre, sphère, cône), volumes simplifiés. Figures : Paul Cézanne.</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:shadow-md transition">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-bold text-brand text-sm">2. Cubisme Analytique</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-brand/10 text-brand font-semibold">1908 - 1912</span>
+              </div>
+              <p class="text-xs text-gray-600">Fractionnement extrême, teintes monochromatiques (gris, ocre), multiplicité des points de vue. Figures : Georges Braque, Pablo Picasso.</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:shadow-md transition">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-bold text-brand text-sm">3. Cubisme Synthétique</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-brand/10 text-brand font-semibold">1912 - 1919</span>
+              </div>
+              <p class="text-xs text-gray-600">Reconstitution de l'objet, introduction du collage, des lettres, de la couleur et de la superposition. Figures : Juan Gris.</p>
+            </div>
+
+            <div class="p-3.5 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white hover:shadow-md transition">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-bold text-brand text-sm">4. Cubisme Orphique</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-brand/10 text-brand font-semibold">1914 - 1920</span>
+              </div>
+              <p class="text-xs text-gray-600">Couleurs vives, lumière, mouvement, abstraction lyrique et musicalité. Terme d'Apollinaire. Figures : Robert Delaunay.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Start CTA -->
+      <div class="bg-brand text-white rounded-2xl p-6 sm:p-8 text-center flex flex-col items-center justify-center space-y-4 shadow-lg">
+        <h3 class="text-xl sm:text-2xl font-bold">Prêt(e) à tester tes connaissances ?</h3>
+        <p class="text-sm sm:text-base text-gray-200 max-w-2xl">
+          Consulte les notes de cours dans l'onglet 2 si tu as besoin de rafraîchir ta mémoire, ou lance directement un des 5 jeux interactifs !
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 pt-2">
+          <button onclick="switchTab('notes')" class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 font-bold transition focus-ring">
+            Consulter le cours
+          </button>
+          <button onclick="switchTab('games')" class="px-6 py-3 rounded-xl bg-accent text-white hover:bg-accent/90 font-bold shadow-md hover:shadow-lg transition focus-ring">
+            Commencer les jeux
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TAB 2: COURS & NOTES -->
+    <section id="tab-content-notes" class="hidden space-y-6">
+      
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200">
+        <div class="inline-block px-3 py-1 bg-highlight/20 text-brand rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+          Document de référence
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-brand tracking-tight mb-2">
+          Notes de cours sur le Cubisme
+        </h2>
+        <p class="text-base text-gray-600 leading-relaxed">
+          Pour maîtriser l'historique et les caractéristiques du cubisme, tu dois réviser les notes de ton cours.
+        </p>
+        <p class="text-sm font-semibold text-brand mt-2">
+          Voici tes notes de cours :
+        </p>
+      </div>
+
+      <!-- PDF Embedded Container & Interactive Viewer -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden flex flex-col">
+        
+        <!-- Controls bar -->
+        <div class="bg-gray-100 p-4 border-b border-gray-200 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center space-x-2 text-xs sm:text-sm font-semibold text-brand">
+            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            <span>Document PDF : LE CUBISME.pdf</span>
+          </div>
+          <a 
+            href="https://github.com/poleterritorialwbebxl/s6-histoiredelart-lecubisme/raw/main/LE%20CUBISME.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-4 py-2 rounded-lg bg-brand text-white text-xs sm:text-sm font-bold hover:bg-brand/90 transition flex items-center space-x-2 focus-ring"
+          >
+            <span>Ouvrir en plein écran / Télécharger</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+
+        <!-- Embed PDF frame with fallback accordion summary -->
+        <div class="w-full h-[600px] bg-gray-50 relative">
+          <iframe 
+            src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/poleterritorialwbebxl/s6-histoiredelart-lecubisme/main/LE%20CUBISME.pdf&embedded=true" 
+            class="w-full h-full border-0"
+            title="Aperçu des notes de cours PDF"
+            loading="lazy"
+          >
+            <p class="p-6 text-center text-gray-600">
+              Votre navigateur ne supporte pas l'affichage direct du PDF. <a href="https://github.com/poleterritorialwbebxl/s6-histoiredelart-lecubisme/raw/main/LE%20CUBISME.pdf" class="text-accent underline font-bold">Cliquez ici pour télécharger le PDF</a>.
+            </p>
+          </iframe>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TAB 3: JEUX & EXERCICES -->
+    <section id="tab-content-games" class="hidden space-y-6">
+      
+      <!-- Games List View (Visible when no specific game is active) -->
+      <div id="games-menu-view" class="space-y-6">
+        
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200">
+          <div class="inline-block px-3 py-1 bg-highlight/20 text-brand rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+            Espace Ludo-Pédagogique
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-brand tracking-tight mb-2">
+            Sélectionne un jeu pour t'entraîner
+          </h2>
+          <p class="text-base text-gray-600">
+            Chaque session génère des questions tirées aléatoirement dans une banque d'exercices. Réponds correctement pour accumuler un maximum de points !
+          </p>
+        </div>
+
+        <!-- Vertical Stack of Interactive Game Cards -->
+        <div class="space-y-4">
+          
+          <!-- Game 1 Card -->
+          <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-200 hover:border-brand/40 transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 font-bold text-xl">
+                1
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-brand">EXERCICE 1 – Vrai ou Faux ?</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Teste tes connaissances générales sur l'historique, les dates et les concepts clés du cubisme.
+                </p>
+                <div class="mt-2 flex items-center space-x-3 text-xs text-gray-500">
+                  <span>Banque de +40 questions</span>
+                  <span>•</span>
+                  <span class="text-highlight font-semibold">+10 pts / bonne réponse</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="startSelectedGame(1)" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand/90 transition shadow focus-ring shrink-0 flex items-center justify-center space-x-2">
+              <span>Jouer</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+
+          <!-- Game 2 Card -->
+          <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-200 hover:border-brand/40 transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 font-bold text-xl">
+                2
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-brand">EXERCICE 2 – Choix multiples (QCM)</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Sélectionne la réponse exacte parmi 4 propositions structurées.
+                </p>
+                <div class="mt-2 flex items-center space-x-3 text-xs text-gray-500">
+                  <span>Questions théoriques ciblées</span>
+                  <span>•</span>
+                  <span class="text-highlight font-semibold">+15 pts / bonne réponse</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="startSelectedGame(2)" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand/90 transition shadow focus-ring shrink-0 flex items-center justify-center space-x-2">
+              <span>Jouer</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+
+          <!-- Game 3 Card -->
+          <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-200 hover:border-brand/40 transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 font-bold text-xl">
+                3
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-brand">EXERCICE 3 – Trie les informations</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Classe chaque mot-clé ou notion dans le courant du cubisme correspondant (Cézannien, Analytique, Synthétique, Orphique).
+                </p>
+                <div class="mt-2 flex items-center space-x-3 text-xs text-gray-500">
+                  <span>Classement interactif</span>
+                  <span>•</span>
+                  <span class="text-highlight font-semibold">+20 pts / élément bien placé</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="startSelectedGame(3)" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand/90 transition shadow focus-ring shrink-0 flex items-center justify-center space-x-2">
+              <span>Jouer</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+
+          <!-- Game 4 Card -->
+          <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-200 hover:border-brand/40 transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 font-bold text-xl">
+                4
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-brand">EXERCICE 4 – Analyse de peintures</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Observe une œuvre d'art sans métadonnées et identifie le courant plastique exact auquel elle appartient.
+                </p>
+                <div class="mt-2 flex items-center space-x-3 text-xs text-gray-500">
+                  <span>Analyse visuelle & Stylistique</span>
+                  <span>•</span>
+                  <span class="text-highlight font-semibold">+20 pts / identification</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="startSelectedGame(4)" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand/90 transition shadow focus-ring shrink-0 flex items-center justify-center space-x-2">
+              <span>Jouer</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+
+          <!-- Game 5 Card -->
+          <div class="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-200 hover:border-brand/40 transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0 font-bold text-xl">
+                5
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-brand">EXERCICE 5 – Identifie l'artiste</h3>
+                <p class="text-sm text-gray-600 mt-1">
+                  Reconnais le maître peintre (Cézanne, Braque, Picasso, Gris ou Delaunay) d'après le tableau affiché.
+                </p>
+                <div class="mt-2 flex items-center space-x-3 text-xs text-gray-500">
+                  <span>Attribution d'œuvres</span>
+                  <span>•</span>
+                  <span class="text-highlight font-semibold">+20 pts / artiste trouvé</span>
+                </div>
+              </div>
+            </div>
+            <button onclick="startSelectedGame(5)" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand/90 transition shadow focus-ring shrink-0 flex items-center justify-center space-x-2">
+              <span>Jouer</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- GAME ARENA VIEW (Displayed ONLY when a game is active) -->
+      <div id="game-arena-view" class="hidden space-y-6">
+        
+        <!-- Game Arena Header & Navigation -->
+        <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-200 flex items-center justify-between flex-wrap gap-4">
+          <button onclick="exitGameToMenu()" class="px-4 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-brand font-bold transition flex items-center space-x-2 text-sm focus-ring">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            <span>Retour aux exercices</span>
+          </button>
+
+          <div class="flex items-center space-x-4">
+            <span id="game-title-badge" class="px-3 py-1 rounded-full bg-brand/10 text-brand font-bold text-xs uppercase tracking-wider">
+              Jeu en cours
+            </span>
+            <span id="game-progress-text" class="text-sm font-semibold text-gray-600">
+              Question 1/5
+            </span>
+          </div>
+        </div>
+
+        <!-- Active Question Card Frame -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200 space-y-6">
+          
+          <!-- Dynamic Content Container -->
+          <div id="game-question-container">
+            <!-- Injected dynamically via JS -->
+          </div>
+
+          <!-- Immediate Feedback Message Box -->
+          <div id="game-feedback-box" class="hidden rounded-xl p-4 transition-all">
+            <div class="flex items-start space-x-3">
+              <div id="feedback-icon" class="shrink-0 mt-0.5"></div>
+              <div>
+                <h4 id="feedback-title" class="font-bold text-base"></h4>
+                <p id="feedback-desc" class="text-sm mt-0.5"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Button Footer -->
+          <div id="game-footer-actions" class="hidden flex justify-end pt-2">
+            <button id="btn-next-question" onclick="nextQuestion()" class="px-6 py-3 rounded-xl bg-accent text-white font-bold hover:bg-accent/90 shadow transition focus-ring flex items-center space-x-2">
+              <span>Question suivante</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand text-white border-t border-brand/20 mt-auto py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-gray-300">
+      <div class="text-left font-medium">
+        © Pôle territorial WBE Bruxelles - Tous droits réservés.
+      </div>
+      <div class="text-right font-medium">
+        Application d'apprentissage de l'histoire de l'art
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT GAME LOGIC & ACCESSIBILITY -->
+  <script>
+    /* Global Application State */
+    const state = {
+      score: 0,
+      currentTab: 'intro',
+      dyslexiaMode: false,
+      ttsEnabled: false,
+      currentGameId: null,
+      currentGameQuestions: [],
+      currentQuestionIndex: 0,
+      selectedAnswer: null,
+      questionAnswered: false,
+      dragState: {}
+    };
+
+    /* Question Banks */
+
+    // GAME 1: Vrai / Faux Question Bank
+    const bankGame1 = [
+      { q: "Le cubisme s’est développé au début du 20e siècle.", a: "A", exp: "Vrai : Le mouvement s'étend de 1907 à environ 1920." },
+      { q: "Le cubisme est présenté comme la première période d’art moderne.", a: "A", exp: "Vrai : Il rompt radicalement avec la perspective traditionnelle." },
+      { q: "Le cubisme a conservé toutes les règles traditionnelles de la peinture.", a: "B", exp: "Faux : Il rejette la perspective classique à point de fuite unique." },
+      { q: "L’objectif du cubisme est d’explorer la forme et le volume.", a: "A", exp: "Vrai : L'accent est mis sur la structure spatiale des objets." },
+      { q: "Les cubistes fractionnent les objets en formes géométriques.", a: "A", exp: "Vrai : Les formes sont décomposées sous plusieurs angles." },
+      { q: "La superposition fait partie des techniques citées dans le cubisme synthétique.", a: "A", exp: "Vrai : Les éléments sont superposés et reconstitués." },
+      { q: "Le cubisme n’a aucun lien avec l’art africain.", a: "B", exp: "Faux : Les masques africains ont fortement inspiré Picasso." },
+      { q: "Paul Cézanne a influencé les artistes cubistes.", a: "A", exp: "Vrai : Cézanne proposait de traiter la nature par le cylindre et la sphère." },
+      { q: "Le cubisme analytique se situe entre 1908 et 1912.", a: "A", exp: "Vrai : C'est la phase d'analyse et de décomposition de la forme." },
+      { q: "Le cubisme synthétique se situe entre 1912 et 1919.", a: "A", exp: "Vrai : Phase où l'objet est recomposé avec des couleurs et papiers collés." },
+      { q: "Le cubisme orphique se situe entre 1914 et 1920.", a: "A", exp: "Vrai : Période axée sur la couleur vive et le rythme visuel." },
+      { q: "Juan Gris est associé au cubisme synthétique.", a: "A", exp: "Vrai : Juan Gris est le maître incontesté du cubisme synthétique." },
+      { q: "Guillaume Apollinaire a inventé le terme « orphisme » en 1912.", a: "A", exp: "Vrai : En référence à Orphée, poète et musicien mythologique." },
+      { q: "L’orphisme est tourné vers une pure abstraction lyrique.", a: "A", exp: "Vrai : Libération totale de la couleur." },
+      { q: "Le cubisme analytique est surtout porté sur la couleur.", a: "B", exp: "Faux : Il emploie des teintes monochromes (gris, ocre, brun)." },
+      { q: "Le cubisme synthétique introduit le collage.", a: "A", exp: "Vrai : Intégration de papier journal, toile cirée et caractères d'imprimerie." },
+      { q: "Le cubisme orphique privilégie les couleurs vives.", a: "A", exp: "Vrai : Les couleurs forment un rythme dynamique." },
+      { q: "Georges Braque est l’un des fondateurs du mouvement cubiste.", a: "A", exp: "Vrai : Cofondateur avec Pablo Picasso." },
+      { q: "Pablo Picasso est présenté comme artiste marquant du cubisme orphique.", a: "B", exp: "Faux : C'est Robert Delaunay qui incarne l'orphisme." },
+      { q: "Robert Delaunay explore la couleur, la lumière et le mouvement.", a: "A", exp: "Vrai : Notamment à travers ses séries de disques et fenêtres." },
+      { q: "Paul Cézanne est présenté comme précurseur du cubisme.", a: "A", exp: "Vrai : Ses recherches sur la structure ont ouvert la voie." },
+      { q: "Le cubisme analytique emploie des teintes monochromatiques de gris, bleu et ocre.", a: "A", exp: "Vrai : Pour concentrer l'attention sur la forme." },
+      { q: "Le cubisme orphique doit son nom à un mythe grec à propos d'un chanteur lyrique, Orphée.", a: "A", exp: "Vrai : Nommé par Apollinaire pour évoquer la musicalité des couleurs." }
+    ];
+
+    // GAME 2: QCM Question Bank
+    const bankGame2 = [
+      {
+        q: "Quel est l’objectif principal du cubisme ?",
+        opts: ["Explorer et mettre en valeur la forme et le volume", "Supprimer toute représentation visuelle", "Éviter toute forme géométrique", "Reproduire uniquement la couleur naturelle"],
+        a: 0,
+        exp: "Le cubisme cherche à décomposer et explorer les volumes sous tous leurs angles."
+      },
+      {
+        q: "Quelle technique est caractéristique du processus cubiste ?",
+        opts: ["Peindre uniquement des paysages romantiques", "Utiliser uniquement des lignes droites", "Supprimer les volumes", "Fractionner les objets en formes géométriques"],
+        a: 3,
+        exp: "Les artistes fractionnent les objets pour analyser leurs facettes géométriques."
+      },
+      {
+        q: "Quelle influence majeure est mentionnée concernant la naissance du cubisme ?",
+        opts: ["L’art africain (masques)", "L’art romain", "L’art japonais", "L’art médiéval"],
+        a: 0,
+        exp: "La stylisation des masques africains a fortement inspiré la décomposition des visages."
+      },
+      {
+        q: "Quel peintre a incité les artistes à se pencher sur la géométrisation de la nature ?",
+        opts: ["Juan Gris", "Henri Matisse", "Guillaume Apollinaire", "Paul Cézanne"],
+        a: 3,
+        exp: "Cézanne affirmait qu'il faut « traiter la nature par le cylindre, la sphère, le cône »."
+      },
+      {
+        q: "Quelles formes géométriques naturelles sont citées chez Cézanne ?",
+        opts: ["Le cylindre, la sphère et le cône", "Le prisme, le losange et le cercle", "Le rectangle, l’ovale et la ligne", "Le cube, le triangle et le carré"],
+        a: 0,
+        exp: "Ces trois formes fondamentales résument la géométrie cézannienne."
+      },
+      {
+        q: "Quelle phase du cubisme est presque dépourvue de couleurs vives ?",
+        opts: ["Le cubisme analytique", "Le cubisme synthétique", "Le cubisme orphique", "Le cubisme cézannien"],
+        a: 0,
+        exp: "Le cubisme analytique privilégie une palette monochrome (gris, ocre)."
+      },
+      {
+        q: "Quelle phase introduit le collage et les éléments du quotidien ?",
+        opts: ["Le cubisme orphique", "Le cubisme synthétique", "Le cubisme cézannien", "Le cubisme analytique"],
+        a: 1,
+        exp: "Le cubisme synthétique réintroduit le réel grâce aux collages d'objets et papiers."
+      },
+      {
+        q: "Quelle phase du cubisme est portée vers une pure abstraction lyrique et colorée ?",
+        opts: ["Le cubisme orphique", "Le cubisme analytique", "Le cubisme cézannien", "Le cubisme synthétique"],
+        a: 0,
+        exp: "L'orphisme, nommé par Apollinaire, mise sur l'harmonie et la lumière colorée."
+      }
+    ];
+
+    // GAME 3: Categorization Data
+    const bankGame3 = [
+      { text: "Paul Cézanne", category: "cezannien" },
+      { text: "Nature et paysage", category: "cezannien" },
+      { text: "Peintures monochromes", category: "analytique" },
+      { text: "Georges Braque", category: "analytique" },
+      { text: "Juan Gris", category: "synthetique" },
+      { text: "Collage & papiers collés", category: "synthetique" },
+      { text: "Écriture & lettres", category: "synthetique" },
+      { text: "Superposition d'objets", category: "synthetique" },
+      { text: "Musique & lyrisme", category: "orphique" },
+      { text: "Lyrisme & Abstraction", category: "orphique" },
+      { text: "Couleurs vives & lumière", category: "orphique" },
+      { text: "Robert Delaunay", category: "orphique" }
+    ];
+
+    // GAME 4: Paintings to Cubism Type (All paintings from curriculum)
+    const bankGame4 = [
+      // Cubisme Cézannien
+      { file: "Paul Cezanne. Lac d'Annecy.jpg", title: "Lac d'Annecy", correct: "cezannien", label: "Cubisme Cézannien" },
+      { file: "Paul Cezanne. Les grandes baigneuses.jpg", title: "Les grandes baigneuses", correct: "cezannien", label: "Cubisme Cézannien" },
+      { file: "Paul Cezanne. Montagne Sainte-Victoire.jpg", title: "Montagne Sainte-Victoire", correct: "cezannien", label: "Cubisme Cézannien" },
+      { file: "Paul Cézanne. La Carrière de Bibémus.jpg", title: "La Carrière de Bibémus", correct: "cezannien", label: "Cubisme Cézannien" },
+
+      // Cubisme Analytique
+      { file: "Georges Braque. Compotier et cartes.jpg", title: "Compotier et cartes", correct: "analytique", label: "Cubisme Analytique" },
+      { file: "Georges Braque. Le Grand Nu.jpg", title: "Le Grand Nu", correct: "analytique", label: "Cubisme Analytique" },
+      { file: "Georges Braque. Le Portugais.jpg", title: "Le Portugais", correct: "analytique", label: "Cubisme Analytique" },
+      { file: "Georges Braque. Le Viaduc à l'Estaque.jpg", title: "Le Viaduc à l'Estaque", correct: "analytique", label: "Cubisme Analytique" },
+      { file: "Georges Braque. Les Usines du Rio-Tinto à l'Estaque.jpg", title: "Les Usines du Rio-Tinto à l'Estaque", correct: "analytique", label: "Cubisme Analytique" },
+      { file: "Georges Braque. Port en Normandie.jpg", title: "Port en Normandie", correct: "analytique", label: "Cubisme Analytique" },
+      { file: "Georges Braque. Violon et bougies.jpg", title: "Violon et bougies", correct: "analytique", label: "Cubisme Analytique" },
+      { file: "Pablo Picasso. La fille à la mandoline.webp", title: "La fille à la mandoline", correct: "analytique", label: "Cubisme Analytique" },
+      { file: "Pablo Picasso. Les demoiselles d'Avignon.webp", title: "Les demoiselles d'Avignon", correct: "analytique", label: "Cubisme Analytique" },
+
+      // Cubisme Synthétique
+      { file: "Juan Gris, Fantômas (1915) - The Nationale Gallery of Art - Chester Dale Fund.jpg", title: "Fantômas", correct: "synthetique", label: "Cubisme Synthétique" },
+      { file: "Juan Gris. Guitare et compotier.webp", title: "Guitare et compotier", correct: "synthetique", label: "Cubisme Synthétique" },
+      { file: "Juan Gris. Guitare.webp", title: "Guitare", correct: "synthetique", label: "Cubisme Synthétique" },
+      { file: "Juan Gris. Le Livre.jpg", title: "Le Livre", correct: "synthetique", label: "Cubisme Synthétique" },
+      { file: "Juan Gris. Le violon.jpg", title: "Le violon", correct: "synthetique", label: "Cubisme Synthétique" },
+      { file: "Juan Gris. Paysage et maisons à Céret.webp", title: "Paysage et maisons à Céret", correct: "synthetique", label: "Cubisme Synthétique" },
+      { file: "Juan Gris. Siphon et verre.webp", title: "Siphon et verre", correct: "synthetique", label: "Cubisme Synthétique" },
+      { file: "Juan Gris. Tabac, journal et bouteille de vin rosé.webp", title: "Tabac, journal et bouteille de vin rosé", correct: "synthetique", label: "Cubisme Synthétique" },
+      { file: "Juan Gris. Verre et carte à jouer.webp", title: "Verre et carte à jouer", correct: "synthetique", label: "Cubisme Synthétique" },
+
+      // Cubisme Orphique
+      { file: "Robert Delaunay. Hommage à Blériot.jpg", title: "Hommage à Blériot", correct: "orphique", label: "Cubisme Orphique" },
+      { file: "Robert Delaunay. L'équipe de Cardiff.jpg", title: "L'équipe de Cardiff", correct: "orphique", label: "Cubisme Orphique" },
+      { file: "Robert Delaunay. La Tour Eiffel.jpeg", title: "La Tour Eiffel", correct: "orphique", label: "Cubisme Orphique" },
+      { file: "Robert Delaunay. Les fenêtres simultanées sur la ville.jpg", title: "Les fenêtres simultanées sur la ville", correct: "orphique", label: "Cubisme Orphique" },
+      { file: "Robert Delaunay. Relief-disques.jpg", title: "Relief-disques", correct: "orphique", label: "Cubisme Orphique" },
+      { file: "Robert Delaunay. Rythme numéro 1.webp", title: "Rythme numéro 1", correct: "orphique", label: "Cubisme Orphique" },
+      { file: "Robert Delaunay. Rythme.jpg", title: "Rythme", correct: "orphique", label: "Cubisme Orphique" }
+    ];
+
+    // GAME 5: Paintings to Artist Name
+    const bankGame5 = [
+      // Paul Cézanne
+      { file: "Paul Cezanne. Lac d'Annecy.jpg", title: "Lac d'Annecy", correct: "Paul Cézanne" },
+      { file: "Paul Cezanne. Les grandes baigneuses.jpg", title: "Les grandes baigneuses", correct: "Paul Cézanne" },
+      { file: "Paul Cezanne. Montagne Sainte-Victoire.jpg", title: "Montagne Sainte-Victoire", correct: "Paul Cézanne" },
+      { file: "Paul Cézanne. La Carrière de Bibémus.jpg", title: "La Carrière de Bibémus", correct: "Paul Cézanne" },
+
+      // Georges Braque
+      { file: "Georges Braque. Compotier et cartes.jpg", title: "Compotier et cartes", correct: "Georges Braque" },
+      { file: "Georges Braque. Le Grand Nu.jpg", title: "Le Grand Nu", correct: "Georges Braque" },
+      { file: "Georges Braque. Le Portugais.jpg", title: "Le Portugais", correct: "Georges Braque" },
+      { file: "Georges Braque. Le Viaduc à l'Estaque.jpg", title: "Le Viaduc à l'Estaque", correct: "Georges Braque" },
+      { file: "Georges Braque. Les Usines du Rio-Tinto à l'Estaque.jpg", title: "Les Usines du Rio-Tinto à l'Estaque", correct: "Georges Braque" },
+      { file: "Georges Braque. Port en Normandie.jpg", title: "Port en Normandie", correct: "Georges Braque" },
+      { file: "Georges Braque. Violon et bougies.jpg", title: "Violon et bougies", correct: "Georges Braque" },
+
+      // Pablo Picasso
+      { file: "Pablo Picasso. La fille à la mandoline.webp", title: "La fille à la mandoline", correct: "Pablo Picasso" },
+      { file: "Pablo Picasso. Les demoiselles d'Avignon.webp", title: "Les demoiselles d'Avignon", correct: "Pablo Picasso" },
+
+      // Juan Gris
+      { file: "Juan Gris, Fantômas (1915) - The Nationale Gallery of Art - Chester Dale Fund.jpg", title: "Fantômas", correct: "Juan Gris" },
+      { file: "Juan Gris. Guitare et compotier.webp", title: "Guitare et compotier", correct: "Juan Gris" },
+      { file: "Juan Gris. Guitare.webp", title: "Guitare", correct: "Juan Gris" },
+      { file: "Juan Gris. Le Livre.jpg", title: "Le Livre", correct: "Juan Gris" },
+      { file: "Juan Gris. Le violon.jpg", title: "Le violon", correct: "Juan Gris" },
+      { file: "Juan Gris. Paysage et maisons à Céret.webp", title: "Paysage et maisons à Céret", correct: "Juan Gris" },
+      { file: "Juan Gris. Siphon et verre.webp", title: "Siphon et verre", correct: "Juan Gris" },
+      { file: "Juan Gris. Tabac, journal et bouteille de vin rosé.webp", title: "Tabac, journal et bouteille de vin rosé", correct: "Juan Gris" },
+      { file: "Juan Gris. Verre et carte à jouer.webp", title: "Verre et carte à jouer", correct: "Juan Gris" },
+
+      // Robert Delaunay
+      { file: "Robert Delaunay. Hommage à Blériot.jpg", title: "Hommage à Blériot", correct: "Robert Delaunay" },
+      { file: "Robert Delaunay. L'équipe de Cardiff.jpg", title: "L'équipe de Cardiff", correct: "Robert Delaunay" },
+      { file: "Robert Delaunay. La Tour Eiffel.jpeg", title: "La Tour Eiffel", correct: "Robert Delaunay" },
+      { file: "Robert Delaunay. Les fenêtres simultanées sur la ville.jpg", title: "Les fenêtres simultanées sur la ville", correct: "Robert Delaunay" },
+      { file: "Robert Delaunay. Relief-disques.jpg", title: "Relief-disques", correct: "Robert Delaunay" },
+      { file: "Robert Delaunay. Rythme numéro 1.webp", title: "Rythme numéro 1", correct: "Robert Delaunay" },
+      { file: "Robert Delaunay. Rythme.jpg", title: "Rythme", correct: "Robert Delaunay" }
+    ];
+
+    // Converts raw filename/path to valid raw github user content URL
+    function getImageUrl(item) {
+      if (item.url) return item.url;
+      const filename = item.file || "";
+      // Clean string
+      let cleanName = filename.replace(/^https?:\/\/.*?\//, '');
+      cleanName = cleanName.replace(/blob\/main\//, '').replace(/\?raw=true$/, '');
+      
+      try {
+        cleanName = decodeURIComponent(cleanName);
+      } catch(e) {}
+
+      // Encode path components safely for GitHub CDN
+      const encoded = encodeURIComponent(cleanName)
+        .replace(/'/g, "%27")
+        .replace(/\(/g, "%28")
+        .replace(/\)/g, "%29");
+
+      return `https://raw.githubusercontent.com/poleterritorialwbebxl/s6-histoiredelart-lecubisme/main/${encoded}`;
+    }
+
+    // Graceful fallback display if image fails to load
+    function handleImgError(imgEl, title) {
+      const parent = imgEl.parentElement;
+      if (parent) {
+        parent.innerHTML = `
+          <div class="flex flex-col items-center justify-center p-8 bg-brand/5 border-2 border-dashed border-brand/30 rounded-xl text-center space-y-2 max-w-md mx-auto">
+            <svg class="w-12 h-12 text-brand/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span class="font-bold text-brand text-base">${title || "Œuvre cubiste"}</span>
+            <span class="text-xs text-gray-500">Représentation visuelle de l'exercice</span>
+          </div>
+        `;
+      }
+    }
+
+    /* Tab Switcher Functions */
+    function switchTab(tabId) {
+      state.currentTab = tabId;
+      
+      // Update Tab Buttons UI
+      const tabs = ['intro', 'notes', 'games'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const content = document.getElementById(`tab-content-${t}`);
+        
+        if (t === tabId) {
+          btn.classList.add('active-tab', 'border-brand', 'text-brand');
+          btn.classList.remove('border-transparent', 'text-gray-600');
+          btn.setAttribute('aria-selected', 'true');
+          content.classList.remove('hidden');
+        } else {
+          btn.classList.remove('active-tab', 'border-brand', 'text-brand');
+          btn.classList.add('border-transparent', 'text-gray-600');
+          btn.setAttribute('aria-selected', 'false');
+          content.classList.add('hidden');
+        }
+      });
+
+      // Speak header title if TTS is active
+      if (state.ttsEnabled) {
+        speakText(`Onglet ${tabId} sélectionné`);
+      }
+    }
+
+    /* Accessibility Controls */
+    function toggleDyslexiaMode() {
+      state.dyslexiaMode = !state.dyslexiaMode;
+      const btn = document.getElementById('btn-dyslexia');
+      if (state.dyslexiaMode) {
+        document.body.classList.add('dyslexic-font');
+        btn.classList.add('bg-highlight', 'text-brand', 'font-bold');
+      } else {
+        document.body.classList.remove('dyslexic-font');
+        btn.classList.remove('bg-highlight', 'text-brand', 'font-bold');
+      }
+    }
+
+    function toggleTextToSpeech() {
+      state.ttsEnabled = !state.ttsEnabled;
+      const btn = document.getElementById('btn-tts');
+      if (state.ttsEnabled) {
+        btn.classList.add('bg-highlight', 'text-brand');
+        speakText("Assistance vocale activée");
+      } else {
+        btn.classList.remove('bg-highlight', 'text-brand');
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      }
+    }
+
+    function speakText(text) {
+      if ('speechSynthesis' in window && state.ttsEnabled) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'fr-FR';
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    /* Score Engine */
+    function addPoints(pts) {
+      state.score += pts;
+      const scoreEl = document.getElementById('global-score');
+      scoreEl.innerText = `${state.score} pts`;
+      scoreEl.classList.add('scale-125', 'text-accent');
+      setTimeout(() => {
+        scoreEl.classList.remove('scale-125', 'text-accent');
+      }, 300);
+    }
+
+    /* Game Engine Routines */
+    function startSelectedGame(gameId) {
+      state.currentGameId = gameId;
+      state.currentQuestionIndex = 0;
+      state.questionAnswered = false;
+
+      // Hide Menu & Show Arena
+      document.getElementById('games-menu-view').classList.add('hidden');
+      document.getElementById('game-arena-view').classList.remove('hidden');
+
+      // Randomize & Select Questions
+      let questions = [];
+      if (gameId === 1) {
+        questions = shuffleArray([...bankGame1]).slice(0, 5);
+        document.getElementById('game-title-badge').innerText = "Exercice 1 : Vrai ou Faux";
+      } else if (gameId === 2) {
+        questions = shuffleArray([...bankGame2]).slice(0, 5);
+        document.getElementById('game-title-badge').innerText = "Exercice 2 : Choix Multiples";
+      } else if (gameId === 3) {
+        questions = [{ type: 'drag', items: shuffleArray([...bankGame3]) }];
+        document.getElementById('game-title-badge').innerText = "Exercice 3 : Trie les informations";
+      } else if (gameId === 4) {
+        questions = shuffleArray([...bankGame4]).slice(0, 5);
+        document.getElementById('game-title-badge').innerText = "Exercice 4 : Analyse de Peintures";
+      } else if (gameId === 5) {
+        questions = shuffleArray([...bankGame5]).slice(0, 5);
+        document.getElementById('game-title-badge').innerText = "Exercice 5 : Identifie l'Artiste";
+      }
+
+      state.currentGameQuestions = questions;
+      renderCurrentQuestion();
+    }
+
+    function exitGameToMenu() {
+      document.getElementById('game-arena-view').classList.add('hidden');
+      document.getElementById('games-menu-view').classList.remove('hidden');
+      document.getElementById('game-feedback-box').classList.add('hidden');
+      document.getElementById('game-footer-actions').classList.add('hidden');
+    }
+
+    function renderCurrentQuestion() {
+      const container = document.getElementById('game-question-container');
+      const feedbackBox = document.getElementById('game-feedback-box');
+      const footerActions = document.getElementById('game-footer-actions');
+      
+      feedbackBox.classList.add('hidden');
+      footerActions.classList.add('hidden');
+      state.questionAnswered = false;
+
+      const qIndex = state.currentQuestionIndex;
+      const totalQ = state.currentGameQuestions.length;
+      document.getElementById('game-progress-text').innerText = `Question ${qIndex + 1}/${totalQ}`;
+
+      const q = state.currentGameQuestions[qIndex];
+
+      // RENDER GAME 1 (Vrai / Faux)
+      if (state.currentGameId === 1) {
+        container.innerHTML = `
+          <div class="space-y-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-brand leading-snug">
+              ${q.q}
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button onclick="handleGame1Answer('A')" class="btn-option p-5 rounded-xl border-2 border-gray-200 hover:border-brand bg-white hover:bg-brand/5 text-left font-bold text-lg transition flex items-center justify-between focus-ring">
+                <span>A. Vrai</span>
+                <span class="w-6 h-6 rounded-full border-2 border-gray-300 inline-block shrink-0"></span>
+              </button>
+              <button onclick="handleGame1Answer('B')" class="btn-option p-5 rounded-xl border-2 border-gray-200 hover:border-brand bg-white hover:bg-brand/5 text-left font-bold text-lg transition flex items-center justify-between focus-ring">
+                <span>B. Faux</span>
+                <span class="w-6 h-6 rounded-full border-2 border-gray-300 inline-block shrink-0"></span>
+              </button>
+            </div>
+          </div>
+        `;
+        speakText(q.q);
+      }
+
+      // RENDER GAME 2 (QCM)
+      else if (state.currentGameId === 2) {
+        const optionsHtml = q.opts.map((opt, idx) => `
+          <button onclick="handleGame2Answer(${idx})" class="btn-option w-full p-4 rounded-xl border-2 border-gray-200 hover:border-brand bg-white hover:bg-brand/5 text-left font-semibold text-base transition flex items-center space-x-3 focus-ring">
+            <span class="w-8 h-8 rounded-lg bg-gray-100 text-brand font-bold flex items-center justify-center shrink-0">
+              ${String.fromCharCode(65 + idx)}
+            </span>
+            <span class="text-bodytext">${opt}</span>
+          </button>
+        `).join('');
+
+        container.innerHTML = `
+          <div class="space-y-6">
+            <h3 class="text-xl sm:text-2xl font-bold text-brand leading-snug">
+              ${q.q}
+            </h3>
+            <div class="space-y-3">
+              ${optionsHtml}
+            </div>
+          </div>
+        `;
+        speakText(q.q);
+      }
+
+      // RENDER GAME 3 (Categorization/Drag & Drop)
+      else if (state.currentGameId === 3) {
+        document.getElementById('game-progress-text').innerText = "Exercice de classement";
+        const items = q.items;
+        
+        container.innerHTML = `
+          <div class="space-y-6">
+            <p class="text-base text-gray-600 font-medium">
+              Clique sur une notion puis clique sur la catégorie correspondante pour la classer.
+            </p>
+
+            <!-- Unclassified Items Pool -->
+            <div id="pool-container" class="bg-gray-100 p-4 rounded-2xl flex flex-wrap gap-2 min-h-[80px]">
+              ${items.map((it, idx) => `
+                <button id="drag-item-${idx}" onclick="selectItemToClassify(${idx}, '${it.category}')" class="px-3.5 py-2 rounded-xl bg-white border border-gray-300 text-brand font-bold text-sm shadow-sm hover:border-highlight transition focus-ring">
+                  ${it.text}
+                </button>
+              `).join('')}
+            </div>
+
+            <!-- Categories Drop Target Boxes -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              <div onclick="classifyInZone('cezannien')" class="drop-zone border-2 border-dashed border-gray-300 rounded-2xl p-4 bg-white hover:bg-brand/5 transition min-h-[120px] cursor-pointer">
+                <h4 class="font-bold text-brand text-sm mb-2 border-b pb-1">Cubisme Cézannien</h4>
+                <div id="zone-cezannien" class="flex flex-wrap gap-2"></div>
+              </div>
+
+              <div onclick="classifyInZone('analytique')" class="drop-zone border-2 border-dashed border-gray-300 rounded-2xl p-4 bg-white hover:bg-brand/5 transition min-h-[120px] cursor-pointer">
+                <h4 class="font-bold text-brand text-sm mb-2 border-b pb-1">Cubisme Analytique</h4>
+                <div id="zone-analytique" class="flex flex-wrap gap-2"></div>
+              </div>
+
+              <div onclick="classifyInZone('synthetique')" class="drop-zone border-2 border-dashed border-gray-300 rounded-2xl p-4 bg-white hover:bg-brand/5 transition min-h-[120px] cursor-pointer">
+                <h4 class="font-bold text-brand text-sm mb-2 border-b pb-1">Cubisme Synthétique</h4>
+                <div id="zone-synthetique" class="flex flex-wrap gap-2"></div>
+              </div>
+
+              <div onclick="classifyInZone('orphique')" class="drop-zone border-2 border-dashed border-gray-300 rounded-2xl p-4 bg-white hover:bg-brand/5 transition min-h-[120px] cursor-pointer">
+                <h4 class="font-bold text-brand text-sm mb-2 border-b pb-1">Cubisme Orphique</h4>
+                <div id="zone-orphique" class="flex flex-wrap gap-2"></div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }
+
+      // RENDER GAME 4 (Analyse de Peintures)
+      else if (state.currentGameId === 4) {
+        const imgSrc = getImageUrl(q);
+        container.innerHTML = `
+          <div class="space-y-6">
+            <h3 class="text-xl font-bold text-brand">
+              À quel courant appartient ce tableau cubiste ?
+            </h3>
+
+            <!-- Painting Display Container -->
+            <div class="flex justify-center bg-gray-100 rounded-2xl p-4 border border-gray-200 min-h-[220px] items-center">
+              <img 
+                src="${imgSrc}" 
+                alt="Peinture cubiste mystère" 
+                class="max-h-80 w-auto object-contain rounded-xl shadow-md transition-all duration-300"
+                onerror="handleImgError(this, '${q.title.replace(/'/g, "\\'")}')"
+              />
+            </div>
+
+            <!-- Options -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <button onclick="handleGame4Answer('cezannien')" class="btn-option p-4 rounded-xl border-2 border-gray-200 hover:border-brand font-bold text-left text-brand bg-white hover:bg-brand/5 transition focus-ring">
+                A. Cubisme Cézannien
+              </button>
+              <button onclick="handleGame4Answer('analytique')" class="btn-option p-4 rounded-xl border-2 border-gray-200 hover:border-brand font-bold text-left text-brand bg-white hover:bg-brand/5 transition focus-ring">
+                B. Cubisme Analytique
+              </button>
+              <button onclick="handleGame4Answer('synthetique')" class="btn-option p-4 rounded-xl border-2 border-gray-200 hover:border-brand font-bold text-left text-brand bg-white hover:bg-brand/5 transition focus-ring">
+                C. Cubisme Synthétique
+              </button>
+              <button onclick="handleGame4Answer('orphique')" class="btn-option p-4 rounded-xl border-2 border-gray-200 hover:border-brand font-bold text-left text-brand bg-white hover:bg-brand/5 transition focus-ring">
+                D. Cubisme Orphique
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      // RENDER GAME 5 (Identifie l'Artiste)
+      else if (state.currentGameId === 5) {
+        const imgSrc = getImageUrl(q);
+        const artists = ["Paul Cézanne", "Georges Braque", "Pablo Picasso", "Juan Gris", "Robert Delaunay"];
+        
+        container.innerHTML = `
+          <div class="space-y-6">
+            <h3 class="text-xl font-bold text-brand">
+              Qui a peint ce tableau ?
+            </h3>
+
+            <div class="flex justify-center bg-gray-100 rounded-2xl p-4 border border-gray-200 min-h-[220px] items-center">
+              <img 
+                src="${imgSrc}" 
+                alt="Tableau mystère" 
+                class="max-h-80 w-auto object-contain rounded-xl shadow-md transition-all duration-300"
+                onerror="handleImgError(this, '${q.title.replace(/'/g, "\\'")}')"
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              ${artists.map(art => `
+                <button onclick="handleGame5Answer('${art}')" class="btn-option p-4 rounded-xl border-2 border-gray-200 hover:border-brand font-bold text-left text-brand bg-white hover:bg-brand/5 transition focus-ring">
+                  ${art}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+    }
+
+    /* Game Answer Handlers */
+
+    function showFeedback(isCorrect, title, desc) {
+      const box = document.getElementById('game-feedback-box');
+      const icon = document.getElementById('feedback-icon');
+      const titleEl = document.getElementById('feedback-title');
+      const descEl = document.getElementById('feedback-desc');
+      const footerActions = document.getElementById('game-footer-actions');
+
+      box.classList.remove('hidden', 'bg-green-50', 'bg-red-50', 'border-green-300', 'border-red-300');
+      
+      if (isCorrect) {
+        box.classList.add('bg-green-50', 'border', 'border-green-300');
+        icon.innerHTML = `<svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>`;
+        titleEl.className = "font-bold text-base text-green-800";
+        descEl.className = "text-sm text-green-700 mt-0.5";
+      } else {
+        box.classList.add('bg-red-50', 'border', 'border-red-300');
+        icon.innerHTML = `<svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>`;
+        titleEl.className = "font-bold text-base text-accent";
+        descEl.className = "text-sm text-gray-700 mt-0.5";
+      }
+
+      titleEl.innerText = title;
+      descEl.innerText = desc;
+      footerActions.classList.remove('hidden');
+
+      speakText(`${title}. ${desc}`);
+    }
+
+    function handleGame1Answer(selected) {
+      if (state.questionAnswered) return;
+      state.questionAnswered = true;
+
+      const q = state.currentGameQuestions[state.currentQuestionIndex];
+      const isCorrect = (selected === q.a);
+
+      if (isCorrect) {
+        addPoints(10);
+        showFeedback(true, "Excellente réponse ! +10 pts", q.exp || "Bravo, tu maîtrises parfaitement cette notion.");
+      } else {
+        showFeedback(false, "Pas tout à fait...", q.exp || "Révise tes notes de cours dans l'onglet 2 pour renforcer cette notion !");
+      }
+    }
+
+    function handleGame2Answer(selectedIdx) {
+      if (state.questionAnswered) return;
+      state.questionAnswered = true;
+
+      const q = state.currentGameQuestions[state.currentQuestionIndex];
+      const isCorrect = (selectedIdx === q.a);
+
+      if (isCorrect) {
+        addPoints(15);
+        showFeedback(true, "Bravo ! Bonne réponse +15 pts", q.exp);
+      } else {
+        showFeedback(false, "Oups, ce n'est pas la bonne option", `La bonne réponse était : "${q.opts[q.a]}". ${q.exp}`);
+      }
+    }
+
+    /* Game 3 Logic */
+    let selectedTag = null;
+    function selectItemToClassify(idx, category) {
+      selectedTag = { idx, category };
+      document.querySelectorAll('[id^="drag-item-"]').forEach(el => el.classList.remove('ring-4', 'ring-highlight'));
+      const activeEl = document.getElementById(`drag-item-${idx}`);
+      if (activeEl) activeEl.classList.add('ring-4', 'ring-highlight');
+    }
+
+    function classifyInZone(targetCategory) {
+      if (!selectedTag) return;
+      const { idx, category } = selectedTag;
+      const activeEl = document.getElementById(`drag-item-${idx}`);
+      if (!activeEl) return;
+
+      const zone = document.getElementById(`zone-${targetCategory}`);
+      zone.appendChild(activeEl);
+      activeEl.classList.remove('ring-4', 'ring-highlight');
+
+      if (category === targetCategory) {
+        activeEl.classList.replace('bg-white', 'bg-green-100');
+        activeEl.classList.replace('border-gray-300', 'border-green-500');
+        addPoints(20);
+      } else {
+        activeEl.classList.replace('bg-white', 'bg-red-100');
+        activeEl.classList.replace('border-gray-300', 'border-accent');
+      }
+
+      selectedTag = null;
+
+      // Check if pool is empty
+      const pool = document.getElementById('pool-container');
+      if (pool && pool.children.length === 0) {
+        showFeedback(true, "Félicitations !", "Tu as classé l'ensemble des notions de cet exercice !");
+      }
+    }
+
+    function handleGame4Answer(selectedType) {
+      if (state.questionAnswered) return;
+      state.questionAnswered = true;
+
+      const q = state.currentGameQuestions[state.currentQuestionIndex];
+      const isCorrect = (selectedType === q.correct);
+
+      if (isCorrect) {
+        addPoints(20);
+        showFeedback(true, "Exact ! +20 pts", `Il s'agit bien d'une œuvre du : ${q.label} ("${q.title}").`);
+      } else {
+        showFeedback(false, "Erreur d'analyse", `Ce tableau "${q.title}" relève du : ${q.label}.`);
+      }
+    }
+
+    function handleGame5Answer(selectedArtist) {
+      if (state.questionAnswered) return;
+      state.questionAnswered = true;
+
+      const q = state.currentGameQuestions[state.currentQuestionIndex];
+      const isCorrect = (selectedArtist === q.correct);
+
+      if (isCorrect) {
+        addPoints(20);
+        showFeedback(true, "Bravo ! +20 pts", `Cette œuvre intitulée "${q.title}" est de ${q.correct}.`);
+      } else {
+        showFeedback(false, "Mauvaise attribution", `L'auteur de "${q.title}" est ${q.correct}.`);
+      }
+    }
+
+    function nextQuestion() {
+      state.currentQuestionIndex++;
+      if (state.currentQuestionIndex < state.currentGameQuestions.length) {
+        renderCurrentQuestion();
+      } else {
+        // End of Game Round Feedback
+        const container = document.getElementById('game-question-container');
+        document.getElementById('game-feedback-box').classList.add('hidden');
+        document.getElementById('game-footer-actions').classList.add('hidden');
+
+        container.innerHTML = `
+          <div class="text-center py-8 space-y-4">
+            <div class="inline-flex p-4 rounded-full bg-highlight/20 text-highlight mb-2">
+              <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-brand">Session terminée !</h3>
+            <p class="text-gray-600 max-w-md mx-auto">
+              Super travail ! Tes efforts te rapprochent de la réussite de tes épreuves du jury !
+            </p>
+            <div class="pt-4 flex justify-center space-x-4">
+              <button onclick="startSelectedGame(${state.currentGameId})" class="px-6 py-3 rounded-xl bg-brand text-white font-bold hover:bg-brand/90 transition shadow focus-ring">
+                Recommencer cet exercice
+              </button>
+              <button onclick="exitGameToMenu()" class="px-6 py-3 rounded-xl bg-gray-100 text-brand font-bold hover:bg-gray-200 transition focus-ring">
+                Choisir un autre jeu
+              </button>
+            </div>
+          </div>
+        `;
+        speakText("Session terminée ! Bravo pour tes efforts !");
+      }
+    }
+
+    /* Helper Utilities */
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+  </script>
+</body>
+</html>
